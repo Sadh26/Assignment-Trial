@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite name="Test Convert" errors="0" skipped="0" tests="7" failures="0" timestamp="2023-07-18T14:45:46">
+  <testcase classname="Test Convert" name="Assert (-12.000000*(1.8) + 32) = 10.400000"/>
+  <testcase classname="Test Convert" name="Assert (0.000000*(1.8) + 32) = 32.000000"/>
+  <testcase classname="Test Convert" name="Assert (NaN*(1.8) + 32) = NaN"/>
+  <testcase classname="Test Convert" name="Assert (10.274000*(1.8) + 32) = 50.493200"/>
+  <testcase classname="Test Convert" name="Assert (100.000000*(1.8) + 32) = 212.000000"/>
+  <testcase classname="Test Convert" name="Assert (50.000000*(1.8) + 32) = 122.000000"/>
+  <testcase classname="Test Convert" name="Assert (75.000000*(1.8) + 32) = 167.000000"/>
+</testsuite>
+<testsuite name="Stop Test" errors="0" skipped="0" tests="2" failures="0" timestamp="2023-07-18T14:45:52">
+  <testcase classname="Stop Test" name="VI is running"/>
+  <testcase classname="Stop Test" name="VI stops running"/>
+</testsuite>
+</testsuites>

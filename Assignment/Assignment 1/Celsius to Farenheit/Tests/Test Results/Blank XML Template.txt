@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+-<testsuites>
+
+</testsuites>
+
+## Copy the above code and paste it in a Text Document and save the file as .xml

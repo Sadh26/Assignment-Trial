@@ -1,0 +1,93 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push to the current branch you are working. 
+  # It is advised to work on a feature branch and not the master/main branch.
+  push:
+
+  pull_request:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job Unit-tests"
+  Unit-tests:
+    # Set the self hosted runner
+    runs-on: self-hosted
+
+    steps:
+      # Checkout the repository to the runner
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # # Checks if the unit test file exists
+      # - name: Check if unit test project exists
+      #   id: check-project
+      #   # Enter the directory where the Test file is present inside the if condition
+      #   run: |
+      #     if ( "${{ github.workspace }}\Assignment 1\Celsius to Farenheit\Tests\Test All.vi" )
+      #     {
+      #       echo "::set-output name=exists::true"
+      #       echo "Test file found"
+      #     }
+      #     else
+      #     {
+      #       echo "::set-output name=exists::false"
+      #       echo "Test file not found"
+      #     }
+
+      # # Run the unit test if unit test file exists
+      # - name: Run tests
+      #   run: |
+      #     if ( "${{ steps.check-project.outputs.exists }}" -eq "true" )
+      #     {
+      #       g-cli --lv-ver 2020 "${{ github.workspace }}\Assignment 1\Celsius to Farenheit\Tests\Test All.vi"
+      #     }
+      #     else
+      #     {
+      #       echo "Unit test project file not found. Skipping tests."
+      #     }
+
+      - name: Run Test Cases
+        run: |
+          function Find-ViFiles {
+              param (
+                  [string]$path
+              )
+
+              Get-ChildItem $path -Recurse | ForEach-Object {
+                  if ($_.PSIsContainer) {
+                      Find-ViFiles $_.FullName
+                  }
+                  elseif ($_.Extension -eq ".vi") {
+                      $isFileExist = $true
+                      Write-Output ("`n`nFound .vi file: " + $_.FullName)
+                      Write-Output ("Running unit test file " + $_.FullName)
+                      g-cli --lv-ver 2020 $_.FullName
+                  }
+              }
+          }
+
+          # The starting directory for iteration
+          $starting_directory = "Tests"
+
+
+          $isFileExist = $false
+          Find-ViFiles $starting_directory
+
+
+          if ($isFileExist -eq $false) {
+              Write-Output "No test files found"
+          }
+
+          Write-Output $isFileExist
+
+
+
+

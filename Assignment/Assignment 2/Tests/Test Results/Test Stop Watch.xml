@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite name="Start Test" errors="0" skipped="0" tests="4" failures="0" timestamp="2023-07-24T14:53:25">
+  <testcase classname="Start Test" name="Test 1 : Timer Starts after 2 sec"/>
+  <testcase classname="Start Test" name="Test 2 : Timer Starts after 2 sec"/>
+  <testcase classname="Start Test" name="Test 3 : Timer Starts after 2 sec"/>
+  <testcase classname="Start Test" name="Check pause time when start is pressed "/>
+</testsuite>
+<testsuite name="Pause Test" errors="0" skipped="0" tests="3" failures="1" timestamp="2023-07-24T14:54:17">
+  <testcase classname="Pause Test" name="Test 1 : Timer pauses at 2 sec"/>
+  <testcase classname="Pause Test" name="Test 2 : Timer pauses at 4 sec"/>
+  <testcase classname="Pause Test" name="Test 3 : Timer pauses at 6 sec">
+    <failure message="test failure">"FAIL"</failure>
+  </testcase>
+</testsuite>
+<testsuite name="Resume Test" errors="0" skipped="0" tests="6" failures="0" timestamp="2023-07-24T14:54:36">
+  <testcase classname="Resume Test" name="Test 1 : Timer pauses at 2 sec"/>
+  <testcase classname="Resume Test" name="Time resumes from 2 sec"/>
+  <testcase classname="Resume Test" name="Test 2 : Timer pauses at 4 sec"/>
+  <testcase classname="Resume Test" name="Time resumes from 4 sec"/>
+  <testcase classname="Resume Test" name="Test 3 : Timer pauses at 6 sec"/>
+  <testcase classname="Resume Test" name="Time resumes from 6 sec"/>
+</testsuite>
+<testsuite name="Reset Test" errors="0" skipped="0" tests="3" failures="0" timestamp="2023-07-24T14:54:50">
+  <testcase classname="Reset Test" name="Timer stats running"/>
+  <testcase classname="Reset Test" name="Timer resets to 0"/>
+  <testcase classname="Reset Test" name="In Pause, reset sets the timer to 0"/>
+</testsuite>
+</testsuites>

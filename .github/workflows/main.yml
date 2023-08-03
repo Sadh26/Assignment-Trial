@@ -79,6 +79,7 @@ jobs:
 
       - name: List all changed files
         run: |
+          $changedFiles = ${{ steps.changed-files.outputs.all_changed_files }}
           foreach ($file in $changedFiles) {
             Write-Output "$file was changed"
           }

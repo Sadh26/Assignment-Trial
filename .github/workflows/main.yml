@@ -61,7 +61,7 @@ jobs:
 
           Write-Output $isFileExist
 
-  changed_files1:
+  changed_files:
     # NOTE:
     # - This is limited to pull_request* events and would raise an error for other events.
     # - A maximum of 3000 files can be returned.
@@ -86,10 +86,10 @@ jobs:
             Write-Output "running1..."
           }
 
-  changed_files:
+  changed_files1:
 
     runs-on: ubuntu-latest  # windows-latest || macos-latest
-    name: Test changed-files
+    name: Test changed-files1
     steps:
       - uses: actions/checkout@v3
         with:

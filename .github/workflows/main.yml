@@ -42,7 +42,7 @@ jobs:
                       $isFileExist = $true
                       Write-Output ("`n`nFound .vi file: " + $_.FullName)
                       Write-Output ("Running unit test file " + $_.FullName)
-                      g-cli -v --lv-ver 2020 --arch 64 $_.FullName
+                      g-cli --lv-ver 2020 --arch 64 $_.FullName
                   }
               }
           }
@@ -60,5 +60,27 @@ jobs:
           }
 
           Write-Output $isFileExist
+
+  changed_files:
+    # NOTE:
+    # - This is limited to pull_request* events and would raise an error for other events.
+    # - A maximum of 3000 files can be returned.
+    # - For more flexibility and no limitations see "Using local .git history" above.
+
+    runs-on: self-hosted  # windows-latest || macos-latest
+    name: Test changed-files
+    # permissions:
+    #   pull-requests: read
+
+    steps:
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v37
+
+      - name: List all changed files
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
 
 

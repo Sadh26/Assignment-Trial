@@ -79,10 +79,11 @@ jobs:
 
       - name: List all changed files
         run: |
+          Write-Host "running..."
           $changedFiles = ${{ steps.changed-files.outputs.all_changed_files }}
           foreach ($file in $changedFiles) {
             Write-Host "$file was changed"
-            Write-Host "running..."
+            Write-Host "running1..."
           }
 
 

@@ -81,8 +81,8 @@ jobs:
         run: |
           $changedFiles = ${{ steps.changed-files.outputs.all_changed_files }}
           foreach ($file in $changedFiles) {
-            Write-Output "$file was changed"
-            Write-Output "running..."
+            Write-Host "$file was changed"
+            Write-Host "running..."
           }
 
 

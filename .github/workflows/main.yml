@@ -88,7 +88,7 @@ jobs:
 
   changed_files1:
 
-    runs-on: ubuntu-latest  # windows-latest || macos-latest
+    runs-on: self-hosted  # windows-latest || macos-latest
     name: Test changed-files1
     steps:
       - uses: actions/checkout@v3

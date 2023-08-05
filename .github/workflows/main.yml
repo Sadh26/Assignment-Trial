@@ -42,6 +42,7 @@ jobs:
                       $isFileExist = $true
                       Write-Output ("`n`nFound .vi file: " + $_.FullName)
                       Write-Output ("Running unit test file " + $_.FullName)
+                      "C:\Program Files\G-CLI\bin\g-cli.exe" --lv-ver 2020 --arch 64 "${{ github.workspace }}\Assignment 1\Celsius to Farenheit\Tests\Test Convert.vi" -- -project-path "${{ github.workspace }}\Assignment 1\Celsius to Farenheit\CelsiusToFarenheit.lvproj"
                       g-cli --lv-ver 2020 --arch 64 $_.FullName
                   }
               }

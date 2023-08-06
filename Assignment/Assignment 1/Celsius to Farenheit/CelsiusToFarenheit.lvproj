@@ -15,7 +15,7 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="CelsiusToFarenheit.lvlib" Type="Library" URL="../CelsiusToFarenheit.lvlib"/>
 		<Item Name="CelsiusToFarenheitTests.lvlib" Type="Library" URL="../Tests/CelsiusToFarenheitTests.lvlib"/>
-		<Item Name="Drona.ini" Type="Document" URL="../Drona.ini"/>
+		<Item Name="Drona.ini" Type="Document" URL="../Tests/Drona.ini"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="8.6CompatibleGlobalVar.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/config.llb/8.6CompatibleGlobalVar.vi"/>

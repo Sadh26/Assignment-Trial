@@ -29,5 +29,5 @@ jobs:
 
       - name: Run VI Analyzer and Unit Test
         run: |
-          g-cli --lv-ver 2020 --arch 64 "${{ github.workspace }}\Assignment\Assignment 1\Celsius to Farenheit\Tests\Test Convert.vi" -- -project-path "${{ github.workspace }}\Assignment\Assignment 1\Celsius to Farenheit\CelsiusToFarenheit.lvproj"
+          g-cli --lv-ver 2020 --arch 64 "${{ github.workspace }}\Assignment\Assignment 1\Celsius to Farenheit\Tests\Test All.vi" -- -project-path "${{ github.workspace }}\Assignment\Assignment 1\Celsius to Farenheit\CelsiusToFarenheit.lvproj"
 

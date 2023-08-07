@@ -17,8 +17,24 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job Unit-tests"
+  open-project-file:
+    # Set the self hosted runner
+    runs-on: self-hosted
+
+    steps:
+      # Checkout the repository to the runner
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+
+      - name: Run VI Analyzer and Unit Test
+        run: |
+          g-cli --lv-ver 2020 --arch 64 "${{ github.workspace }}\Assignment\Project file\OpenProject.vi"
+  
+  
   test-vi:
     # Set the self hosted runner
+    needs: open-project-file
     runs-on: self-hosted
 
     steps:

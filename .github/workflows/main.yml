@@ -29,7 +29,7 @@ jobs:
 
       - name: Run VI Analyzer and Unit Test
         run: |
-          g-cli --lv-ver 2020 --arch 64 "${{ github.workspace }}\Assignment\Project file\OpenProject.vi"
+          LabVIEWCLI -OperationName RunVI -VIPath "C:\Users\sadhana.suresh\Documents\GIT\Assignment-Trial\Assignment\Project file\OpenProject.vi" C:\Users\sadhana.suresh\Documents\GIT\Assignment-Trial\Assignment\Assignment1\CelsiustoFarenheit\CelsiusToFarenheit.lvproj
   
   
   test-vi:

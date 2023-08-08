@@ -29,7 +29,7 @@ jobs:
 
       - name: Run VI Analyzer and Unit Test
         run: |
-          $proj="C:\Users\sadhana.suresh\Documents\GIT\Assignment-Trial\Assignment\Assignment1\CelsiustoFarenheit\CelsiusToFarenheit.lvproj"
+          proj="C:\Users\sadhana.suresh\Documents\GIT\Assignment-Trial\Assignment\Assignment1\CelsiustoFarenheit\CelsiusToFarenheit.lvproj"
           LabVIEWCLI -OperationName RunVI -VIPath "C:\Users\sadhana.suresh\Documents\GIT\Assignment-Trial\Assignment\Project file\OpenProject.vi" $proj
         shell: cmd
   

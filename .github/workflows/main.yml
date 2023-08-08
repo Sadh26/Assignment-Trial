@@ -84,6 +84,7 @@ jobs:
               }
               if ($errorIn -eq "true") {
                 Write-Output "Error Exist..."
+                Exit 1
               }
           }
 

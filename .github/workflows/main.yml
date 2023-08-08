@@ -60,7 +60,7 @@ jobs:
 
       - name: Run Test Cases
         run: |
-          $errorExist = " "
+          $error = $false
           function Find-ViFiles {
               param (
                   [string]$path
@@ -75,7 +75,9 @@ jobs:
                       Write-Output ("`n`nFound .vi file: " + $_.FullName)
                       Write-Output ("Running unit test file " + $_.FullName)
                       $errorExist = $(g-cli --lv-ver 2020 $_.FullName)
-                      Write-Output "$errorExist"
+                      if ($errorExist -ne " ") {
+                        $error = $true
+                      }
                   }
               }
           }
@@ -91,7 +93,7 @@ jobs:
           if ($isFileExist -eq $false) {
               Write-Output "No test files found"
           }
-          if ($errorExist -ne " ") {
+          if ($error -eq $true) {
             exit 1
           }
 

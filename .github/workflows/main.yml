@@ -40,7 +40,7 @@ jobs:
 
               foreach ($lvprojFile in $lvprojFiles) {
                   Write-Host ("Found .lvproj file: " + $lvprojFile.FullName)
-                  LabVIEWCLI -OperationName RunVI -VIPath "${{ github.workspace }}\Assignment\Project file\OpenProject.vi" "$lvprojFile.FullName"
+                  LabVIEWCLI -OperationName RunVI -VIPath "${{ github.workspace }}\Assignment\Project file\OpenProject.vi" $lvprojFile.FullName
               }
           }
 

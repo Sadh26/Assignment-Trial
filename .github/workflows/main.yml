@@ -82,6 +82,9 @@ jobs:
                       }
                   }
               }
+              if ($errorIn -eq "true") {
+                Write-Output "Error Exist..."
+              }
           }
 
           # The starting directory for iteration

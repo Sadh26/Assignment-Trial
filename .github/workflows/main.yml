@@ -60,6 +60,7 @@ jobs:
 
       - name: Run Test Cases
         run: |
+          $errorExist = " "
           function Find-ViFiles {
               param (
                   [string]$path
@@ -89,6 +90,9 @@ jobs:
 
           if ($isFileExist -eq $false) {
               Write-Output "No test files found"
+          }
+          if ($errorExist -nq " ") {
+            exit 1
           }
 
           Write-Output $isFileExist

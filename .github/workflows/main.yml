@@ -26,15 +26,33 @@ jobs:
         uses: actions/checkout@v2
 
 
-      - name: Run VI Analyzer and Unit Test
+      - name: Open Project file
         run: |
           $proj = "${{ github.workspace }}\Assignment\Assignment1\CelsiustoFarenheit\CelsiusToFarenheit.lvproj"
           LabVIEWCLI -OperationName RunVI -VIPath "${{ github.workspace }}\Assignment\Project file\OpenProject.vi" "$proj"
+
+          $starting_directory = "${{ github.workspace }}\Assignment"
+
+          # Function to find .lvproj files
+          function Find-lvprojFiles {
+              param (
+                  [string]$directory
+              )
+
+              $lvprojFiles = Get-ChildItem -Path $directory -Recurse -Filter *.lvproj -File
+
+              foreach ($lvprojFile in $lvprojFiles) {
+                  Write-Host ("Found .lvproj file: " + $lvprojFile.FullName)
+                  LabVIEWCLI -OperationName RunVI -VIPath "${{ github.workspace }}\Assignment\Project file\OpenProject.vi" "$lvprojFile.FullName"
+              }
+          }
+
+          # Calling Find-CsprojFiles function with input parameter starting_directory
+          Find-lvprojFiles $starting_directory
       
   
   test-vi:
     # Set the self hosted runner
-    needs: open-project-file
     runs-on: self-hosted
 
     steps:
@@ -42,8 +60,36 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-
-      - name: Run VI Analyzer and Unit Test
+      - name: Run Test Cases
         run: |
-          g-cli --lv-ver 2020 --arch 64 "${{ github.workspace }}\Assignment\Assignment1\CelsiustoFarenheit\Tests\Test Convert.vi" -- -project-path "${{ github.workspace }}\Assignment\Assignment 1\Celsius to Farenheit\CelsiusToFarenheit.lvproj"
+          function Find-ViFiles {
+              param (
+                  [string]$path
+              )
 
+              Get-ChildItem $path -Recurse | ForEach-Object {
+                  if ($_.PSIsContainer) {
+                      Find-ViFiles $_.FullName
+                  }
+                  elseif ($_.Extension -eq ".vi") {
+                      $isFileExist = $true
+                      Write-Output ("`n`nFound .vi file: " + $_.FullName)
+                      Write-Output ("Running unit test file " + $_.FullName)
+                      g-cli --lv-ver 2020 $_.FullName
+                  }
+              }
+          }
+
+          # The starting directory for iteration
+          $starting_directory = "Tests"
+
+
+          $isFileExist = $false
+          Find-ViFiles $starting_directory
+
+
+          if ($isFileExist -eq $false) {
+              Write-Output "No test files found"
+          }
+
+          Write-Output $isFileExist

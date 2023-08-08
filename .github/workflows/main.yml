@@ -94,7 +94,7 @@ jobs:
               Write-Output "No test files found"
           }
           if ($errorIn -eq $true) {
-            exit 1
+            Exit 1
           }
 
           Write-Output $isFileExist

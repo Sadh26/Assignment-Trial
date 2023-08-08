@@ -31,9 +31,8 @@ jobs:
 
       - name: Run VI Analyzer and Unit Test
         run: |
-          
           LabVIEWCLI -OperationName RunVI -VIPath "C:\Users\sadhana.suresh\Documents\GIT\Assignment-Trial\Assignment\Project file\OpenProject.vi" $proj
-        shell: cmd
+      
   
   test-vi:
     # Set the self hosted runner

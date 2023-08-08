@@ -28,9 +28,6 @@ jobs:
 
       - name: Open Project file
         run: |
-          $proj = "${{ github.workspace }}\Assignment\Assignment1\CelsiustoFarenheit\CelsiusToFarenheit.lvproj"
-          LabVIEWCLI -OperationName RunVI -VIPath "${{ github.workspace }}\Assignment\Project file\OpenProject.vi" "$proj"
-
           $starting_directory = "${{ github.workspace }}\Assignment"
 
           # Function to find .lvproj files

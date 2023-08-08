@@ -91,7 +91,7 @@ jobs:
           if ($isFileExist -eq $false) {
               Write-Output "No test files found"
           }
-          if ($errorExist -nq " ") {
+          if ($errorExist -ne " ") {
             exit 1
           }
 

@@ -75,7 +75,7 @@ jobs:
                       Write-Output ("`n`nFound .vi file: " + $_.FullName)
                       Write-Output ("Running unit test file " + $_.FullName)
                       $errorExist = $(g-cli --lv-ver 2020 $_.FullName)
-                      if ($errorExist -ne " ") {
+                      if ("$errorExist" -ne " ") {
                         $errorIn = $true
                       }
                   }

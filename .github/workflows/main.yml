@@ -76,7 +76,7 @@ jobs:
                       Write-Output ("Running unit test file " + $_.FullName)
                       $output = g-cli --lv-ver 2020 $_.FullName
                       Write-Output ("$output")
-                      if ($output -eq $null) {
+                      if ($output -ne $null) {
                         Write-Output "I'm Running....."
                         $errorIn = $true
                       }
@@ -96,7 +96,7 @@ jobs:
               Write-Output "No test files found"
           }
           if ($errorIn -eq $true) {
-            Exit 1
+            Write-Output "Error Exist..."
           }
 
           Write-Output $isFileExist

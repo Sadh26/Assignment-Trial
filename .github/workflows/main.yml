@@ -2,9 +2,6 @@
 
 name: Test-vis
 
-env: 
-  proj : "C:/Users/sadhana.suresh/Documents/GIT/Assignment-Trial/Assignment/Assignment1/CelsiustoFarenheit/CelsiusToFarenheit.lvproj"
-# Controls when the workflow will run
 on:
   # Triggers the workflow on push to the current branch you are working. 
   # It is advised to work on a feature branch and not the master/main branch.
@@ -31,6 +28,7 @@ jobs:
 
       - name: Run VI Analyzer and Unit Test
         run: |
+          $proj = "C:/Users/sadhana.suresh/Documents/GIT/Assignment-Trial/Assignment/Assignment1/CelsiustoFarenheit/CelsiusToFarenheit.lvproj"
           LabVIEWCLI -OperationName RunVI -VIPath "C:\Users\sadhana.suresh\Documents\GIT\Assignment-Trial\Assignment\Project file\OpenProject.vi" "$proj"
       
   

@@ -54,6 +54,7 @@ jobs:
   test-vi:
     # Set the self hosted runner
     runs-on: self-hosted
+    needs: open-project-file
 
     steps:
       # Checkout the repository to the runner

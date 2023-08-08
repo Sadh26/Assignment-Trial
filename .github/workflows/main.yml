@@ -75,8 +75,8 @@ jobs:
                       Write-Output ("`n`nFound .vi file: " + $_.FullName)
                       Write-Output ("Running unit test file " + $_.FullName)
                       $output = g-cli --lv-ver 2020 $_.FullName
-                      Write-Host ("$output")
-                      if ($output -ne " ") {
+                      Write-Output ("$output")
+                      if ($output -eq $null) {
                         $errorIn = $true
                       }
                   }
